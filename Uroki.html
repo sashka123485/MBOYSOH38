@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши учителя</title>
+</head>
+<body>
+    <div>
+        <h1>Наши учителя</h1>
+        <p>Лучшие преподаватели школы</p>
+    </div>
+
+    <div id="teachersList">
+        <!-- Учителя будут загружены через JavaScript -->
+    </div>
+
+    <script>
+        // Данные учителей
+        const teachers = [
+            {
+                id: 1,
+                name: "Хотабыч",
+                subject: "Волшебство и магия",
+                experience: 1000,
+                rating: 5.0,
+                description: "Древний джинн, преподает искусство волшебства и исполнения желаний",
+                link: "popa.html"
+            },
+            {
+                id: 2,
+                name: "Татьяна Станиславна",
+                subject: "Русский язык и литература",
+                experience: 25,
+                rating: 4.9,
+                description: "Строгий но справедливый преподаватель, знает все правила русского языка наизусть",
+                link: "tata.html"
+            },
+            {
+                id: 3,
+                name: "Физрук Василеч",
+                subject: "Физкультура",
+                experience: 15,
+                rating: 4.7,
+                description: "Любимый физрук всей школы, мастер спорта по волейболу",
+                link: "ioi.html"
+            }
+        ];
+
+        // Функция для отображения учителей
+        function displayTeachers() {
+            const teachersList = document.getElementById('teachersList');
+            teachersList.innerHTML = '';
+
+            teachers.forEach(teacher => {
+                const teacherDiv = document.createElement('div');
+                teacherDiv.innerHTML = `
+                    <h2>${teacher.name}</h2>
+                    <p><strong>Предмет:</strong> ${teacher.subject}</p>
+                    <p><strong>Опыт:</strong> ${teacher.experience} лет</p>
+                    <p><strong>Рейтинг:</strong> ${teacher.rating}/5</p>
+                    <p><strong>Описание:</strong> ${teacher.description}</p>
+                    <button onclick="window.location.href='${teacher.link}'">Подробнее</button>
+                    <br><br>
+                `;
+                teachersList.appendChild(teacherDiv);
+            });
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = function() {
+            displayTeachers();
+        }
+    </script>
+</body>
+</html>
