@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хотабыч - МБОУ СОШ №38 г. Чебоксары</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #ff0000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #400000, #800000);
+            color: #ff0000;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 5px solid #600000;
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
+        }
+        
+        .school-info {
+            background-color: #600000;
+            color: #ff0000;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .teacher-profile {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            background-color: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+            border: 1px solid #400000;
+        }
+        
+        .teacher-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+        }
+        
+        .teacher-photo {
+            width: 250px;
+            height: 300px;
+            background-color: #333;
+            border: 5px solid #800000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .teacher-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-placeholder {
+            color: #ff4444;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .photo-instruction {
+            color: #ff4444;
+            text-align: center;
+            font-size: 0.9rem;
+            max-width: 250px;
+            background-color: #222;
+            padding: 10px;
+            border: 1px dashed #800000;
+        }
+        
+        .teacher-info {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .teacher-name {
+            color: #ff0000;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #800000;
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .teacher-age {
+            font-size: 1.5rem;
+            color: #ff4444;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .teacher-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .trait {
+            background-color: #222;
+            border-left: 4px solid #800000;
+            padding: 10px 15px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .quote-section {
+            background-color: #600000;
+            color: #ff0000;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #800000;
+        }
+        
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .author {
+            font-size: 1.2rem;
+            text-align: right;
+        }
+        
+        .rules {
+            background-color: #111;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+            border: 1px solid #400000;
+        }
+        
+        .rules h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .rules-list {
+            list-style-type: none;
+        }
+        
+        .rules-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .rules-list li:before {
+            content: "!";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background-color: #800000;
+            color: #ff0000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: #111;
+            color: #ff0000;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #400000;
+        }
+        
+        @media (max-width: 768px) {
+            .teacher-profile {
+                flex-direction: column;
+            }
+            
+            .teacher-name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Хотабыч</h1>
+            <p>Учитель английского языка с характером</p>
+        </div>
+    </header>
+    
+    <div class="school-info">
+        <div class="container">
+            МБОУ "СОШ №38" г. Чебоксары
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="teacher-profile">
+            <div class="teacher-image">
+                <div class="teacher-photo">
+                    <!-- 
+                        ДЛЯ ДОБАВЛЕНИЯ ФОТОГРАФИИ:
+                        1. Найдите URL изображения в интернете
+                        2. Замените содержимое ниже на:
+                           <img src="ВАША_ССЫЛКА" alt="Хотабыч">
+                        3. Удалите этот комментарий
+                    -->
+                    <div class="photo-placeholder">
+                        Портрет Хотабыча<br>(строгий взгляд, седые волосы, очки на носу)
+                    </div>
+                </div>
+                <div class="photo-instruction">
+                    Чтобы добавить фото, отредактируйте HTML-код (см. комментарий в коде)
+                </div>
+            </div>
+            <div class="teacher-info">
+                <h2 class="teacher-name">Хотабыч</h2>
+                <p class="teacher-age">80 лет опыта строгости</p>
+                <div class="teacher-description">
+                    <p>Хотабыч - легенда школы №38 и кошмар для всех, кто не уважает английский язык. Родом из Манчестера, он переехал в Россию 40 лет назад и с тех пор преподает английский с непоколебимой строгостью и британской педантичностью.</p>
+                    <p>Его уроки - это испытание на прочность, где каждая ошибка карается ледяным взглядом, а опоздания считаются личным оскорблением. Несмотря на возраст, его энергия и требовательность не знают границ.</p>
+                </div>
+                
+                <div class="traits">
+                    <div class="trait">
+                        <strong>Характер:</strong> Строгий, принципиальный, непоколебимый
+                    </div>
+                    <div class="trait">
+                        <strong>Педагогический стаж:</strong> 55 лет
+                    </div>
+                    <div class="trait">
+                        <strong>Любимое выражение:</strong> "This is absolutely unacceptable!"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <div class="quote">
+                "В моем классе нет места безграмотности, лени и плохим манерам. Если вы не готовы учиться, не приходите вовсе!"
+            </div>
+            <div class="author">- Хотабыч</div>
+        </div>
+        
+        <div class="rules">
+            <h2>Правила выживания на уроках Хотабыча</h2>
+            <ul class="rules-list">
+                <li>Никогда не опаздывайте. Он закроет дверь ровно в начало урока.</li>
+                <li>Домашнее задание должно быть выполнено идеально. "Почти правильно" для него не существует.</li>
+                <li>Забудьте о телефонах. Увидев гаджет на уроке, он конфискует его до конца четверти.</li>
+                <li>Говорите только на английском. Русская речь на его уроках карается дополнительными заданиями.</li>
+                <li>Сидите прямо, не сутультесь. Осанка - признак уважения к учителю и предмету.</li>
+                <li>Не спорьте с его методами преподавания. 55 лет стажа дают ему право знать лучше.</li>
+                <li>Помните: за его строгостью скрывается забота о вашем образовании. Хотя это сложно заметить.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>МБОУ "Средняя общеобразовательная школа №38" г. Чебоксары</p>
+            <p>© 2023 Легенда о Хотабыче. Все права на строгость защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
